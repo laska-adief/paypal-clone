@@ -1,0 +1,14 @@
+
+@mixin button {
+  @apply px-8 py-3 font-bold;
+}
+
+.button-primary {
+  @apply bg-primary text-white;
+  @include button;
+}
+
+.button-secondary {
+  @apply bg-white text-black;
+  @include button;
+}

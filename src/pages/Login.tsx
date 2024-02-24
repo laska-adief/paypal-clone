@@ -9,6 +9,11 @@ const Login = () => {
     setEmail(valueEmail);
   };
 
+  const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const valuePassword = event.target?.value;
+    setPassword(valuePassword);
+  };
+
   return <></>;
 };
 export default Login;

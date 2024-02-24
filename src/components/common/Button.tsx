@@ -5,6 +5,7 @@ interface ButtonProps {
   variant: "primary" | "secondary";
   borderRadius?: BorderRadiusProp;
   width?: WidthProp;
+  onClick?: () => void;
   children: React.ReactNode;
 }
 
@@ -13,9 +14,9 @@ const defaultProps: Partial<ButtonProps> = {
   borderRadius: "rounded",
 };
 
-const Button: React.FC<ButtonProps> = ({ type, variant, borderRadius, width, children }) => {
+const Button: React.FC<ButtonProps> = ({ type, variant, borderRadius, width, onClick, children }) => {
   return (
-    <button type={type} className={`button-${variant} ${borderRadius} ${width}`}>
+    <button type={type} className={`button-${variant} ${borderRadius} ${width}`} onClick={onClick}>
       {children}
     </button>
   );

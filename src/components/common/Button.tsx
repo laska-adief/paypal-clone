@@ -16,7 +16,10 @@ const defaultProps: Partial<ButtonProps> = {
 
 const Button: React.FC<ButtonProps> = ({ type, variant, borderRadius, width, onClick, children }) => {
   return (
-    <button type={type} className={`button-${variant} ${borderRadius} ${width}`} onClick={onClick}>
+    <button
+      type={type}
+      className={`button-${variant} ${borderRadius} ${width} hover:bg-dodger-blue transition-all duration-300 ease-in-out`}
+      onClick={onClick}>
       {children}
     </button>
   );

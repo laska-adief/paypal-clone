@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LoginForm from "../components/auth/LoginForm";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -18,6 +19,10 @@ const Login = () => {
     event.preventDefault();
   };
 
-  return <></>;
+  return (
+    <>
+      <LoginForm email={email} password={password} onChangeEmail={onChangeEmail} onChangePassword={onChangePassword} onSubmit={onSubmit} />
+    </>
+  );
 };
 export default Login;

@@ -2,7 +2,7 @@ interface InputProps {
   type: "text" | "email" | "password";
   placeholder: string;
   value: string;
-  onChange: () => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange }) => {

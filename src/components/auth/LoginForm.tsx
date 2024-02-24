@@ -4,9 +4,9 @@ import Input from "../common/Input";
 interface LoginForm {
   email: string;
   password: string;
-  onChangeEmail: () => void;
-  onChangePassword: () => void;
-  onSubmit: () => void;
+  onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const LoginForm: React.FC<LoginForm> = ({ email, password, onChangeEmail, onChangePassword, onSubmit }) => {

@@ -14,6 +14,10 @@ const Login = () => {
     setPassword(valuePassword);
   };
 
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return <></>;
 };
 export default Login;

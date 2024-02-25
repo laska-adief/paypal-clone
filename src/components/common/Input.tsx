@@ -4,9 +4,10 @@ interface InputProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, onFocus }) => {
+const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, onFocus, onBlur }) => {
   return (
     <>
       <input
@@ -15,7 +16,8 @@ const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, onFoc
         placeholder={placeholder}
         onChange={onChange}
         onFocus={onFocus}
-        className="w-full px-3 py-5 border border-light-gray rounded focus:outline-dodger-blue focus:shadow-input-focus"
+        onBlur={onBlur}
+        className="w-full px-3 py-5 border border-light-gray rounded focus:border-none focus:outline-dodger-blue focus:shadow-input-focus"
       />
     </>
   );

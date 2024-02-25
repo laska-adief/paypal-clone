@@ -25,12 +25,12 @@ const LoginForm: React.FC<LoginForm> = ({ email, password, onChangeEmail, onChan
             <Text isLink={true} href="/forgot-password" size="text-lg" weight="font-bold" customClass="mb-1">
               Forgot Password?
             </Text>
-            <div className="relative h-4 text-center border-t border-separator">
-              <Text customClass="relative inline bg-white top-[-18px] px-2 text-dark-gray">or</Text>
-            </div>
             <Button type="submit" variant="primary" width="w-full" borderRadius="rounded-full">
               Log In
             </Button>
+            <div className="relative h-4 text-center border-t border-separator my-4">
+              <Text customClass="relative inline bg-white top-[-18px] px-2 text-dark-gray">or</Text>
+            </div>
           </form>
         </div>
       </div>

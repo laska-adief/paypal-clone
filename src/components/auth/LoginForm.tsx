@@ -6,12 +6,28 @@ import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 interface LoginForm {
   email: string;
   password: string;
+  isShowPassword: boolean;
+  isFocusPassword: boolean;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onShowHidePassword: (event: React.MouseEvent<HTMLButtonElement>, value: boolean) => void;
+  onFocusInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlurInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const LoginForm: React.FC<LoginForm> = ({ email, password, onChangeEmail, onChangePassword, onSubmit }) => {
+const LoginForm: React.FC<LoginForm> = ({
+  email,
+  password,
+  isShowPassword,
+  isFocusPassword,
+  onChangeEmail,
+  onChangePassword,
+  onShowHidePassword,
+  onFocusInputPassword,
+  onBlurInputPassword,
+  onSubmit,
+}) => {
   return (
     <>
       <div className="grid place-items-center min-h-screen">
@@ -21,7 +37,42 @@ const LoginForm: React.FC<LoginForm> = ({ email, password, onChangeEmail, onChan
           </div>
           <form onSubmit={onSubmit} className="flex flex-col gap-4 text-lg">
             <Input type="email" placeholder="Email" value={email} onChange={onChangeEmail} />
-            <Input type="password" placeholder="Enter your password" value={password} onChange={onChangePassword} />
+            <div className={`flex ${password && isFocusPassword ? "border border-l-0 rounded border-light-gray" : ""}`}>
+              {isShowPassword ? (
+                <Input
+                  type="text"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={onChangePassword}
+                  onFocus={onFocusInputPassword}
+                  onBlur={onBlurInputPassword}
+                />
+              ) : (
+                <Input
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={onChangePassword}
+                  onFocus={onFocusInputPassword}
+                  onBlur={onBlurInputPassword}
+                />
+              )}
+              {password && isFocusPassword ? (
+                <div>
+                  <Button
+                    type="button"
+                    variant="text"
+                    size="text-xs"
+                    customClass="h-full px-1 font-bold min-w-[40px]"
+                    onMouseDown={(e: React.MouseEvent<HTMLButtonElement>) => onShowHidePassword(e, !isShowPassword)}>
+                    {isShowPassword ? "Hide" : "Show"}
+                  </Button>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+
             <Text isLink={true} href="/forgot-password" size="text-lg" weight="font-bold" customClass="mb-1">
               Forgot Password?
             </Text>

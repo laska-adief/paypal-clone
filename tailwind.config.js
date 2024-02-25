@@ -17,6 +17,8 @@ export default {
       },
       boxShadow: {
         "input-focus": "inset 0 0 0 .125rem #1040c1,0 0 0 .375rem rgba(16,114,235,.16),inset 0 0 0 1px #031954,0 0 0 1px #1040c1",
+        "button-focus": "0 0 0 .375rem rgba(16,114,235,.16)",
+        "button-secondary-hover": "inset 0 0 0 .0625rem #142c8e",
       },
     },
   },

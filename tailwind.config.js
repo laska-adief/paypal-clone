@@ -9,6 +9,8 @@ export default {
         "light-gray": "#9da4a6",
         "muted-gray": "#eaeced",
         link: "#1072eb",
+        separator: "#cbd2d6",
+        "dark-gray": "#6c7378",
       },
       padding: {
         form: "30px 40px 50px",

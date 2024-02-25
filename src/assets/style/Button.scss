@@ -12,3 +12,7 @@
   @apply bg-white text-primary font-medium border border-primary hover:shadow-button-secondary-hover;
   @include button;
 }
+
+.button-text {
+  @apply text-link;
+}

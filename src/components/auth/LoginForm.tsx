@@ -15,7 +15,7 @@ const LoginForm: React.FC<LoginForm> = ({ email, password, onChangeEmail, onChan
   return (
     <>
       <div className="grid place-items-center min-h-screen">
-        <div className="w-[460px] mx-auto p-form border border-muted-gray rounded-xl">
+        <div className="w-[460px] mx-auto p-form border border-muted-gray max-md:border-none max-md:w-full max-sm:min-w-max rounded-xl">
           <div className="max-w-[40px] mx-auto mb-10">
             <img src={PaypalLogo} alt="Paypal Logo" />
           </div>
@@ -28,9 +28,12 @@ const LoginForm: React.FC<LoginForm> = ({ email, password, onChangeEmail, onChan
             <Button type="submit" variant="primary" width="w-full" borderRadius="rounded-full">
               Log In
             </Button>
-            <div className="relative h-4 text-center border-t border-separator my-4">
+            <div className="relative h-4 text-center border-t border-separator mt-4 mb-2">
               <Text customClass="relative inline bg-white top-[-18px] px-2 text-dark-gray">or</Text>
             </div>
+            <Button type="button" variant="secondary" width="w-full" borderRadius="rounded-full">
+              Sign Up
+            </Button>
           </form>
         </div>
       </div>

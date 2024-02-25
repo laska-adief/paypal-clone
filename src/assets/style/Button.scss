@@ -1,14 +1,14 @@
 
 @mixin button {
-  @apply px-8 py-3 font-bold;
+  @apply px-8 py-3 transition-all duration-300 ease-in-out focus:shadow-button-focus;
 }
 
 .button-primary {
-  @apply bg-primary text-white;
+  @apply bg-primary text-white font-bold hover:bg-dodger-blue;
   @include button;
 }
 
 .button-secondary {
-  @apply bg-white text-black;
+  @apply bg-white text-primary font-medium border border-primary hover:shadow-button-secondary-hover;
   @include button;
 }

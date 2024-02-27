@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../common/Button";
 import Input from "../common/Input";
 import Text from "../common/Text";
@@ -82,9 +83,11 @@ const LoginForm: React.FC<LoginForm> = ({
             <div className="relative h-4 text-center border-t border-separator mt-4 mb-2">
               <Text customClass="relative inline bg-white top-[-18px] px-2 text-dark-gray">or</Text>
             </div>
-            <Button type="button" variant="secondary" width="w-full" borderRadius="rounded-full">
-              Sign Up
-            </Button>
+            <Link to={"/signup"}>
+              <Button type="button" variant="secondary" width="w-full" borderRadius="rounded-full">
+                Sign Up
+              </Button>
+            </Link>
           </form>
         </div>
       </div>

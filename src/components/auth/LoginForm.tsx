@@ -3,21 +3,9 @@ import Button from "../common/Button";
 import Input from "../common/Input";
 import Text from "../common/Text";
 import PaypalLogo from "./../../assets/images/paypal-logo.svg";
+import { LoginFormProps } from "../../types/type-auth";
 
-interface LoginForm {
-  email: string;
-  password: string;
-  isShowPassword: boolean;
-  isFocusPassword: boolean;
-  onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onShowHidePassword: (event: React.MouseEvent<HTMLButtonElement>, value: boolean) => void;
-  onFocusInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onBlurInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-}
-
-const LoginForm: React.FC<LoginForm> = ({
+const LoginForm: React.FC<LoginFormProps> = ({
   email,
   password,
   isShowPassword,

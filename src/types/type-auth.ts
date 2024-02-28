@@ -10,3 +10,10 @@ export interface LoginFormProps {
   onBlurInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
+
+
+export interface SignupStepProps {
+  step: number;
+  label: string;
+  isCompleted: boolean;
+}

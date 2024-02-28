@@ -1,7 +1,8 @@
 import Text from "../common/Text";
-import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 import Input from "../common/Input";
 import Button from "../common/Button";
+import PaypalLogo from "./../../assets/images/paypal-logo.svg";
+import BackButton from "./../../assets/images/back-button.svg";
 
 const SignupForm = () => {
   return (
@@ -9,7 +10,9 @@ const SignupForm = () => {
       <div className="grid place-items-center-min-h-screen">
         <div className="w-[776px] mx-auto p-form max-md:w-full max-[360px]:w-max">
           <div className="flex items-center justify-between max-[360px]:gap-12 h-20">
-            <div className="min-w-16"></div>
+            <div className="p-2 w-fit h-fit cursor-pointer rounded-full hover:bg-muted-gray">
+              <img src={BackButton} alt="Back" className="w-10" />
+            </div>
             <div className="w-full">
               <div className="w-full max-w-[40px] mx-auto">
                 <img src={PaypalLogo} alt="Paypal Logo" />

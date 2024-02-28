@@ -1,5 +1,7 @@
 import Text from "../common/Text";
 import PaypalLogo from "./../../assets/images/paypal-logo.svg";
+import Input from "../common/Input";
+import Button from "../common/Button";
 
 const SignupForm = () => {
   return (
@@ -16,6 +18,17 @@ const SignupForm = () => {
             <Text isLink={true} href="/login" size="text-lg" weight="font-bold" customClass="min-w-16">
               Log In
             </Text>
+          </div>
+          <div className="flex flex-col justify-center items-center gap-8 px-16 pt-3">
+            <Text isLink={false} size="text-3xl" weight="font-medium">
+              Sign up for PayPal
+            </Text>
+            <form className="w-full flex flex-col place-items-center pt-4 px-10">
+              <Input type="email" placeholder="Email address" value={""} onChange={() => {}} />
+              <Button type="submit" variant="primary" width="w-fit" borderRadius="rounded-full" customClass="!px-28 my-10">
+                Next
+              </Button>
+            </form>
           </div>
         </div>
       </div>

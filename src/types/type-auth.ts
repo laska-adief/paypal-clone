@@ -22,4 +22,5 @@ export interface SignupFormProps {
   steps: SignupStepProps[];
   activeStep: number;
   validStep: (step: number) => void;
+  backStep: (step: number) => void;
 }

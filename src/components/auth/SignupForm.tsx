@@ -3,8 +3,9 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 import BackButton from "./../../assets/images/back-button.svg";
+import { SignupFormProps } from "../../types/type-auth";
 
-const SignupForm = () => {
+const SignupForm: React.FC<SignupFormProps> = ({ activeStep, validStep }) => {
   return (
     <>
       <div className="grid place-items-center-min-h-screen">
@@ -22,17 +23,25 @@ const SignupForm = () => {
               Log In
             </Text>
           </div>
-          <div className="flex flex-col justify-center items-center gap-8 px-16 pt-3">
-            <Text isLink={false} size="text-3xl" weight="font-medium">
-              Sign up for PayPal
-            </Text>
-            <form className="w-full flex flex-col place-items-center pt-4 px-10">
-              <Input type="email" placeholder="Email address" value={""} onChange={() => {}} />
-              <Button type="submit" variant="primary" width="w-fit" borderRadius="rounded-full" customClass="!px-28 my-10">
-                Next
-              </Button>
-            </form>
-          </div>
+          {activeStep === 1 && (
+            <div className="flex flex-col justify-center items-center gap-8 px-16 pt-3">
+              <Text isLink={false} size="text-3xl" weight="font-medium">
+                Sign up for PayPal
+              </Text>
+              <form className="w-full flex flex-col place-items-center pt-4 px-10">
+                <Input type="email" placeholder="Email address" value={""} onChange={() => {}} />
+                <Button
+                  type="submit"
+                  variant="primary"
+                  width="w-fit"
+                  borderRadius="rounded-full"
+                  customClass="!px-28 my-10"
+                  onClick={() => validStep(1)}>
+                  Next
+                </Button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </>

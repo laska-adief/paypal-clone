@@ -42,6 +42,30 @@ const SignupForm: React.FC<SignupFormProps> = ({ activeStep, validStep }) => {
               </form>
             </div>
           )}
+
+          {activeStep === 2 && (
+            <div className="flex flex-col justify-center items-center gap-8 px-16 pt-3">
+              <Text isLink={false} size="text-3xl" weight="font-medium">
+                Phone number
+              </Text>
+              <form className="w-full flex flex-col place-items-center pt-4 px-10">
+                <Input type="text" placeholder="Phone number" value={""} onChange={() => {}} />
+                <Text size="text-sm" customClass="mt-2">
+                  By continuing, you confirm that you are authorized to use this phone number and agree to receive SMS. Fees may apply for
+                  providing mobile services.
+                </Text>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  width="w-fit"
+                  borderRadius="rounded-full"
+                  customClass="!px-28 my-10"
+                  onClick={() => validStep(2)}>
+                  Next
+                </Button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -22,6 +22,19 @@ const Signup = () => {
     });
     setActiveSteps((prevStep) => prevStep + 1);
   };
-  return <SignupForm steps={steps} validStep={validStep} activeStep={activeSteps} />;
+
+  const backStep = (stepNumber: number) => {
+    setSteps((prevStep) => {
+      return prevStep.map((step) => {
+        if (step.step === stepNumber) {
+          return { ...step, isCompleted: false };
+        }
+        return step;
+      });
+    });
+    setActiveSteps((prevStep) => prevStep - 1);
+  };
+
+  return <SignupForm steps={steps} validStep={validStep} activeStep={activeSteps} backStep={backStep} />;
 };
 export default Signup;

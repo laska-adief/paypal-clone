@@ -17,3 +17,9 @@ export interface SignupStepProps {
   label: string;
   isCompleted: boolean;
 }
+
+export interface SignupFormProps {
+  steps: SignupStepProps[];
+  activeStep: number;
+  validStep: (step: number) => void;
+}

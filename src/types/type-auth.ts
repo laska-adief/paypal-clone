@@ -20,9 +20,11 @@ export interface SignupStepProps {
 
 export interface SignupFormProps {
   email: string;
+  phone: string;
   steps: SignupStepProps[];
   activeStep: number;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangePhone: (event: React.ChangeEvent<HTMLInputElement>) => void;
   validStep: (step: number) => void;
   backStep: (step: number) => void;
 }

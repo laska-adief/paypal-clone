@@ -5,7 +5,7 @@ import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 import BackButton from "./../../assets/images/back-button.svg";
 import { SignupFormProps } from "../../types/type-auth";
 
-const SignupForm: React.FC<SignupFormProps> = ({ email, activeStep, onChangeEmail, validStep, backStep }) => {
+const SignupForm: React.FC<SignupFormProps> = ({ email, phone, activeStep, onChangeEmail, onChangePhone, validStep, backStep }) => {
   return (
     <>
       <div className="grid place-items-center-min-h-screen">
@@ -51,7 +51,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ email, activeStep, onChangeEmai
                 Phone number
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
-                <Input type="text" placeholder="Phone number" value={""} onChange={() => {}} />
+                <Input type="text" placeholder="Phone number" value={phone} onChange={onChangePhone} />
                 <Text size="text-sm" customClass="mt-2">
                   By continuing, you confirm that you are authorized to use this phone number and agree to receive SMS. Fees may apply for
                   providing mobile services.

@@ -19,7 +19,7 @@ const Signup = () => {
   };
 
   const onChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const valuePhone = event.target?.value;
+    const valuePhone = event.target?.value.replace(/\D/g, "");
     setPhone(valuePhone);
   };
 

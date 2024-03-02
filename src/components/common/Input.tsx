@@ -2,18 +2,20 @@ interface InputProps {
   type: "text" | "email" | "password";
   placeholder: string;
   value: string;
+  maxLength?: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, onFocus, onBlur }) => {
+const Input: React.FC<InputProps> = ({ type, placeholder, value, maxLength, onChange, onFocus, onBlur }) => {
   return (
     <>
       <input
         type={type}
         value={value}
         placeholder={placeholder}
+        maxLength={maxLength}
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}

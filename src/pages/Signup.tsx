@@ -9,12 +9,18 @@ const Signup = () => {
   ];
 
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
     setEmail(valueEmail);
+  };
+
+  const onChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const valuePhone = event.target?.value;
+    setPhone(valuePhone);
   };
 
   const validStep = (stepNumber: number) => {
@@ -44,9 +50,11 @@ const Signup = () => {
   return (
     <SignupForm
       email={email}
+      phone={phone}
       steps={steps}
       activeStep={activeSteps}
       onChangeEmail={onChangeEmail}
+      onChangePhone={onChangePhone}
       validStep={validStep}
       backStep={backStep}
     />

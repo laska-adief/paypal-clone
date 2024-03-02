@@ -5,7 +5,7 @@ import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 import BackButton from "./../../assets/images/back-button.svg";
 import { SignupFormProps } from "../../types/type-auth";
 
-const SignupForm: React.FC<SignupFormProps> = ({ activeStep, validStep, backStep }) => {
+const SignupForm: React.FC<SignupFormProps> = ({ email, activeStep, onChangeEmail, validStep, backStep }) => {
   return (
     <>
       <div className="grid place-items-center-min-h-screen">
@@ -31,7 +31,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ activeStep, validStep, backStep
                 Sign up for PayPal
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
-                <Input type="email" placeholder="Email address" value={""} onChange={() => {}} />
+                <Input type="email" placeholder="Email address" value={email} onChange={onChangeEmail} />
                 <Button
                   type="submit"
                   variant="primary"

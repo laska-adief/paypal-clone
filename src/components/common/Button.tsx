@@ -7,7 +7,7 @@ interface ButtonProps {
   borderRadius?: BorderRadiusProp;
   width?: WidthProp;
   customClass?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
 }

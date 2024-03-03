@@ -5,7 +5,16 @@ import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 import BackButton from "./../../assets/images/back-button.svg";
 import { SignupFormProps } from "../../types/type-auth";
 
-const SignupForm: React.FC<SignupFormProps> = ({ email, phone, activeStep, onChangeEmail, onChangePhone, validStep, backStep }) => {
+const SignupForm: React.FC<SignupFormProps> = ({
+  email,
+  phone,
+  emailError,
+  activeStep,
+  onChangeEmail,
+  onChangePhone,
+  validStep,
+  backStep,
+}) => {
   return (
     <>
       <div className="grid place-items-center-min-h-screen">
@@ -32,13 +41,16 @@ const SignupForm: React.FC<SignupFormProps> = ({ email, phone, activeStep, onCha
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
                 <Input type="email" placeholder="Email address" value={email} onChange={onChangeEmail} />
+                <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-6">
+                  {...emailError}
+                </Text>
                 <Button
                   type="submit"
                   variant="primary"
                   width="w-fit"
                   borderRadius="rounded-full"
                   customClass="!px-28 my-10"
-                  onClick={() => validStep(1)}>
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => validStep(e, activeStep)}>
                   Next
                 </Button>
               </form>
@@ -62,7 +74,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ email, phone, activeStep, onCha
                   width="w-fit"
                   borderRadius="rounded-full"
                   customClass="!px-28 my-10"
-                  onClick={() => validStep(2)}>
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => validStep(e, activeStep)}>
                   Next
                 </Button>
               </form>

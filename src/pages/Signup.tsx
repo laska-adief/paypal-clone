@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SignupForm from "../components/auth/SignupForm";
 import { SignupStepProps } from "../types/type-auth";
+import * as Yup from "yup";
 
 const Signup = () => {
   const signupStepInitial: SignupStepProps[] = [
@@ -9,9 +10,12 @@ const Signup = () => {
   ];
 
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string[]>([]);
   const [phone, setPhone] = useState("");
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
+
+  const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
@@ -23,7 +27,8 @@ const Signup = () => {
     setPhone(valuePhone);
   };
 
-  const validStep = (stepNumber: number) => {
+  const validStep = async (event: React.MouseEvent<HTMLButtonElement>, stepNumber: number) => {
+    event.preventDefault();
     setSteps((prevStep) => {
       return prevStep.map((step) => {
         if (step.step === stepNumber) {
@@ -32,7 +37,20 @@ const Signup = () => {
         return step;
       });
     });
-    setActiveSteps((prevStep) => prevStep + 1);
+
+    if (stepNumber === 1) {
+      try {
+        await validationSchemaEmail.validate(email);
+        setActiveSteps((prevStep) => prevStep + 1);
+        setEmailError([]);
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          if (error?.errors?.length) {
+            setEmailError(error.errors);
+          }
+        }
+      }
+    }
   };
 
   const backStep = (stepNumber: number) => {
@@ -50,6 +68,7 @@ const Signup = () => {
   return (
     <SignupForm
       email={email}
+      emailError={emailError}
       phone={phone}
       steps={steps}
       activeStep={activeSteps}

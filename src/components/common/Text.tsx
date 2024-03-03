@@ -12,6 +12,7 @@ interface TextProps {
 const defaultProps: Partial<TextProps> = {
   size: "text-base",
   weight: "font-normal",
+  isLink: false,
 };
 
 const Text: React.FC<TextProps> = ({ size, weight, isLink, href, customClass, children }) => {

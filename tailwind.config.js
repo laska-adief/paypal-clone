@@ -11,6 +11,7 @@ export default {
         link: "#1072eb",
         separator: "#cbd2d6",
         "dark-gray": "#6c7378",
+        error: "#545d68",
       },
       padding: {
         form: "30px 40px 50px",

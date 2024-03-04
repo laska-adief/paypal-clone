@@ -22,6 +22,7 @@ export interface SignupFormProps {
   email: string;
   emailError: string[];
   phone: string;
+  phoneError: string[];
   steps: SignupStepProps[];
   activeStep: number;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;

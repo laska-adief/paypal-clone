@@ -9,6 +9,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
   email,
   phone,
   emailError,
+  phoneError,
   activeStep,
   onChangeEmail,
   onChangePhone,
@@ -64,6 +65,9 @@ const SignupForm: React.FC<SignupFormProps> = ({
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
                 <Input type="text" placeholder="Phone number" value={phone} maxLength={14} onChange={onChangePhone} />
+                <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-6">
+                  {...phoneError}
+                </Text>
                 <Text size="text-sm" customClass="mt-2">
                   By continuing, you confirm that you are authorized to use this phone number and agree to receive SMS. Fees may apply for
                   providing mobile services.

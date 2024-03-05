@@ -29,20 +29,12 @@ const Signup = () => {
 
   const validStep = async (event: React.MouseEvent<HTMLButtonElement>, stepNumber: number) => {
     event.preventDefault();
-    setSteps((prevStep) => {
-      return prevStep.map((step) => {
-        if (step.step === stepNumber) {
-          return { ...step, isCompleted: true };
-        }
-        return step;
-      });
-    });
 
     if (stepNumber === 1) {
       try {
         await validationSchemaEmail.validate(email);
-        setActiveSteps((prevStep) => prevStep + 1);
         setEmailError([]);
+        navigateStep("next", stepNumber);
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {
@@ -54,15 +46,23 @@ const Signup = () => {
   };
 
   const backStep = (stepNumber: number) => {
+    navigateStep("back", stepNumber);
+  };
+
+  const navigateStep = (navigation: "next" | "back", stepNumber: number) => {
     setSteps((prevStep) => {
       return prevStep.map((step) => {
         if (step.step === stepNumber) {
-          return { ...step, isCompleted: false };
+          return { ...step, isCompleted: navigation === "next" ? true : false };
         }
         return step;
       });
     });
-    setActiveSteps((prevStep) => prevStep - 1);
+    if (navigation === "next") {
+      setActiveSteps((prevStep) => prevStep + 1);
+    } else {
+      setActiveSteps((prevStep) => prevStep - 1);
+    }
   };
 
   return (

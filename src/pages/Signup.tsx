@@ -12,10 +12,12 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string[]>([]);
   const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState<string[]>([]);
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
 
   const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
+  const validationSchemaNumber = Yup.string().required("Phone is required.");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
@@ -39,6 +41,19 @@ const Signup = () => {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {
             setEmailError(error.errors);
+          }
+        }
+      }
+    }
+
+    if (stepNumber === 2) {
+      try {
+        await validationSchemaNumber.validate(phone);
+        setPhoneError([]);
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          if (error?.errors?.length) {
+            setPhoneError(error.errors);
           }
         }
       }
@@ -70,6 +85,7 @@ const Signup = () => {
       email={email}
       emailError={emailError}
       phone={phone}
+      phoneError={phoneError}
       steps={steps}
       activeStep={activeSteps}
       onChangeEmail={onChangeEmail}

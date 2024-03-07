@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface InputProps {
   type: "text" | "email" | "password";
@@ -13,6 +13,12 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({ type, placeholder, value, maxLength, isError, onChange, onFocus, onBlur }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isError && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isError]);
 
   return (
     <>

@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 interface InputProps {
   type: "text" | "email" | "password";
   placeholder: string;
@@ -10,9 +12,12 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ type, placeholder, value, maxLength, isError, onChange, onFocus, onBlur }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
       <input
+        ref={inputRef}
         type={type}
         value={value}
         placeholder={placeholder}

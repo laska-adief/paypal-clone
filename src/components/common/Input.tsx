@@ -20,7 +20,9 @@ const Input: React.FC<InputProps> = ({ type, placeholder, value, maxLength, isEr
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}
-        className="w-full px-3 py-5 border border-light-gray rounded focus:border-none focus:outline-dodger-blue focus:shadow-input-focus"
+        className={`w-full px-3 py-5 border border-light-gray rounded focus:border-none focus:outline-dodger-blue focus:shadow-input-focus ${
+          isError && "border-input-border-error focus:outline-0 focus:shadow-input-focus-error"
+        }`}
       />
     </>
   );

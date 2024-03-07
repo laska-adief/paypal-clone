@@ -3,12 +3,13 @@ interface InputProps {
   placeholder: string;
   value: string;
   maxLength?: number;
+  isError: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputProps> = ({ type, placeholder, value, maxLength, onChange, onFocus, onBlur }) => {
+const Input: React.FC<InputProps> = ({ type, placeholder, value, maxLength, isError, onChange, onFocus, onBlur }) => {
   return (
     <>
       <input

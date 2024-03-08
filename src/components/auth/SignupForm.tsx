@@ -41,7 +41,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
                 Sign up for PayPal
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
-                <Input type="email" placeholder="Email address" value={email} onChange={onChangeEmail} />
+                <Input type="email" placeholder="Email address" value={email} isError={emailError.length > 0} onChange={onChangeEmail} />
                 <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-6">
                   {...emailError}
                 </Text>

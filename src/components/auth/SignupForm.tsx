@@ -64,7 +64,14 @@ const SignupForm: React.FC<SignupFormProps> = ({
                 Phone number
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
-                <Input type="text" placeholder="Phone number" value={phone} maxLength={14} onChange={onChangePhone} />
+                <Input
+                  type="text"
+                  placeholder="Phone number"
+                  value={phone}
+                  maxLength={14}
+                  isError={phoneError.length > 0}
+                  onChange={onChangePhone}
+                />
                 <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-6">
                   {...phoneError}
                 </Text>

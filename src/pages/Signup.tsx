@@ -28,6 +28,7 @@ const Signup = () => {
   const onChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valuePhone = event.target?.value.replace(/\D/g, "");
     setPhone(valuePhone);
+    setPhoneError([]);
   };
 
   const validStep = async (event: React.MouseEvent<HTMLButtonElement>, stepNumber: number) => {
@@ -48,6 +49,7 @@ const Signup = () => {
       }
     }
 
+    setPhoneError([]);
     if (stepNumber === 2) {
       try {
         await validationSchemaNumber.validate(phone);

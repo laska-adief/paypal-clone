@@ -22,6 +22,7 @@ const Signup = () => {
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
     setEmail(valueEmail);
+    setEmailError([]);
   };
 
   const onChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +33,7 @@ const Signup = () => {
   const validStep = async (event: React.MouseEvent<HTMLButtonElement>, stepNumber: number) => {
     event.preventDefault();
 
+    setEmailError([]);
     if (stepNumber === 1) {
       try {
         await validationSchemaEmail.validate(email);

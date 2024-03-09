@@ -4,6 +4,7 @@ import Button from "../common/Button";
 import PaypalLogo from "./../../assets/images/paypal-logo.svg";
 import BackButton from "./../../assets/images/back-button.svg";
 import { SignupFormProps } from "../../types/type-auth";
+import InputPassword from "./InputPassword";
 
 const SignupForm: React.FC<SignupFormProps> = ({
   email,
@@ -15,10 +16,13 @@ const SignupForm: React.FC<SignupFormProps> = ({
   activeStep,
   onChangeEmail,
   onChangePhone,
-  onChangePassword,
+  onGetValuePassword,
   validStep,
   backStep,
 }) => {
+  const handlePasswordValue = (value: string) => {
+    onGetValuePassword(value);
+  };
   return (
     <>
       <div className="grid place-items-center-min-h-screen">
@@ -101,14 +105,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
                 Create a password
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
-                <Input
-                  type="text"
-                  placeholder="Create password"
-                  value={password}
-                  maxLength={20}
-                  isError={passwordError.length > 0}
-                  onChange={onChangePassword}
-                />
+                <InputPassword passwordValue={handlePasswordValue} />
                 <Button
                   type="submit"
                   variant="primary"

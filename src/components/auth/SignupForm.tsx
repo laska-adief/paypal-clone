@@ -15,6 +15,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
   activeStep,
   onChangeEmail,
   onChangePhone,
+  setPasswordError,
   onGetValuePassword,
   validStep,
   backStep,
@@ -104,7 +105,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
                 Create a password
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
-                <InputPassword passwordValue={handlePasswordValue} />
+                <InputPassword passwordValue={handlePasswordValue} passwordError={passwordError} setPasswordError={setPasswordError} />
                 <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-6">
                   {...passwordError}
                 </Text>

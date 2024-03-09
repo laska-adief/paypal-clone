@@ -1,3 +1,7 @@
+export interface InputPasswordProps {
+  passwordValue: (value: string) => void;
+}
+
 export interface LoginFormProps {
   email: string;
   password: string;
@@ -10,7 +14,6 @@ export interface LoginFormProps {
   onBlurInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
-
 
 export interface SignupStepProps {
   step: number;
@@ -29,7 +32,7 @@ export interface SignupFormProps {
   activeStep: number;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChangePhone: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onGetValuePassword: (value: string) => void;
   validStep: (event: React.MouseEvent<HTMLButtonElement>, step: number) => void;
   backStep: (step: number) => void;
 }

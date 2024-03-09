@@ -5,7 +5,7 @@ interface InputProps {
   placeholder: string;
   value: string;
   maxLength?: number;
-  isError: boolean;
+  isError?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;

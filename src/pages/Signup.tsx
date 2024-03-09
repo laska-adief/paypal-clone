@@ -7,12 +7,15 @@ const Signup = () => {
   const signupStepInitial: SignupStepProps[] = [
     { step: 1, label: "email", isCompleted: false },
     { step: 2, label: "phone", isCompleted: false },
+    { step: 3, label: "password", isCompleted: false },
   ];
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string[]>([]);
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState<string[]>([]);
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState<string[]>([]);
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
 
@@ -90,6 +93,8 @@ const Signup = () => {
       emailError={emailError}
       phone={phone}
       phoneError={phoneError}
+      password={password}
+      passwordError={passwordError}
       steps={steps}
       activeStep={activeSteps}
       onChangeEmail={onChangeEmail}

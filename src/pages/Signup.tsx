@@ -25,7 +25,7 @@ const Signup = () => {
     .required("Password is required.")
     .min(8, "Use 8 to 20 characters.")
     .max(20, "Do not use more than 20 characters.")
-    .matches(/^(?!.*(.)\1{3}).*$/, "Do not use 4 or more consecutive repeated characters")
+    .matches(/^(?!.*(.)\1{3}).*$/, "Do not use 4 or more consecutive repeated characters (like 1111).")
     .matches(/^(?=.*[0-9!@#%^])(?!.*(.)\1{3}).*$/, "At least 1 number or symbol (like !@#%^).");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,6 +72,21 @@ const Signup = () => {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {
             setPhoneError(error.errors);
+          }
+        }
+      }
+    }
+
+    setPasswordError([]);
+    if (stepNumber === 3) {
+      try {
+        await validationSchemaPassword.validate(password);
+        setPasswordError([]);
+        console.log("account created");
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          if (error?.errors?.length) {
+            setPasswordError(error.errors);
           }
         }
       }

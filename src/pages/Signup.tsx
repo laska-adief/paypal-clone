@@ -34,8 +34,7 @@ const Signup = () => {
     setPhoneError([]);
   };
 
-  const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const valuePassword = event.target?.value;
+  const onGetValuePassword = (valuePassword: string) => {
     setPassword(valuePassword);
   };
 
@@ -105,7 +104,7 @@ const Signup = () => {
       activeStep={activeSteps}
       onChangeEmail={onChangeEmail}
       onChangePhone={onChangePhone}
-      onChangePassword={onChangePassword}
+      onGetValuePassword={onGetValuePassword}
       validStep={validStep}
       backStep={backStep}
     />

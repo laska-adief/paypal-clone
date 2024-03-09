@@ -9,7 +9,6 @@ import InputPassword from "./InputPassword";
 const SignupForm: React.FC<SignupFormProps> = ({
   email,
   phone,
-  password,
   emailError,
   phoneError,
   passwordError,
@@ -106,6 +105,9 @@ const SignupForm: React.FC<SignupFormProps> = ({
               </Text>
               <form className="w-full flex flex-col place-items-center pt-4 px-10">
                 <InputPassword passwordValue={handlePasswordValue} />
+                <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-6">
+                  {...passwordError}
+                </Text>
                 <Button
                   type="submit"
                   variant="primary"

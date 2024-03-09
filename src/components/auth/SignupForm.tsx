@@ -94,6 +94,33 @@ const SignupForm: React.FC<SignupFormProps> = ({
               </form>
             </div>
           )}
+
+          {activeStep === 3 && (
+            <div className="flex flex-col justify-center items-center gap-8 px-16 pt-3">
+              <Text isLink={false} size="text-3xl" weight="font-medium">
+                Create a password
+              </Text>
+              <form className="w-full flex flex-col place-items-center pt-4 px-10">
+                <Input
+                  type="text"
+                  placeholder="Create password"
+                  value={password}
+                  maxLength={20}
+                  isError={passwordError.length > 0}
+                  onChange={onChangePassword}
+                />
+                <Button
+                  type="submit"
+                  variant="primary"
+                  width="w-fit"
+                  borderRadius="rounded-full"
+                  customClass="!px-28 my-10"
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => validStep(e, activeStep)}>
+                  Next
+                </Button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </>

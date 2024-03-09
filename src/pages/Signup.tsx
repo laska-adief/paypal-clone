@@ -126,7 +126,7 @@ const Signup = () => {
 
     const users = [];
     if (itemStorage?.length) {
-      users.push(itemStorage, { user: payload });
+      users.push(...itemStorage, { user: payload });
     } else {
       users.push({ user: payload });
     }

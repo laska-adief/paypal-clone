@@ -8,11 +8,14 @@ import { SignupFormProps } from "../../types/type-auth";
 const SignupForm: React.FC<SignupFormProps> = ({
   email,
   phone,
+  password,
   emailError,
   phoneError,
+  passwordError,
   activeStep,
   onChangeEmail,
   onChangePhone,
+  onChangePassword,
   validStep,
   backStep,
 }) => {

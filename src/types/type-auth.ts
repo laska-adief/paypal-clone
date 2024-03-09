@@ -29,6 +29,7 @@ export interface SignupFormProps {
   activeStep: number;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChangePhone: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
   validStep: (event: React.MouseEvent<HTMLButtonElement>, step: number) => void;
   backStep: (step: number) => void;
 }

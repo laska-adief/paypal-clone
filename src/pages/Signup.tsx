@@ -133,6 +133,7 @@ const Signup = () => {
       activeStep={activeSteps}
       onChangeEmail={onChangeEmail}
       onChangePhone={onChangePhone}
+      setPasswordError={setPasswordError}
       onGetValuePassword={onGetValuePassword}
       validStep={validStep}
       backStep={backStep}

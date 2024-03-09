@@ -3,7 +3,7 @@ import Button from "../common/Button";
 import Input from "../common/Input";
 import { InputPasswordProps } from "../../types/type-auth";
 
-const InputPassword: React.FC<InputPasswordProps> = ({ passwordError, passwordValue }) => {
+const InputPassword: React.FC<InputPasswordProps> = ({ passwordError, setPasswordError, passwordValue }) => {
   const [password, setPassword] = useState<string>("");
   const [isFocusPassword, setIsFocusPassword] = useState<boolean>(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
@@ -12,6 +12,7 @@ const InputPassword: React.FC<InputPasswordProps> = ({ passwordError, passwordVa
     const valuePassword = event.target?.value;
     setPassword(valuePassword);
     passwordValue(valuePassword);
+    setPasswordError([]);
   };
 
   const onShowHidePassword = (event: React.MouseEvent<HTMLButtonElement>, value: boolean) => {

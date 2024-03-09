@@ -20,7 +20,13 @@ const Signup = () => {
   const [activeSteps, setActiveSteps] = useState(1);
 
   const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
-  const validationSchemaNumber = Yup.string().required("Phone is required.");
+  const validationSchemaPhone = Yup.string().required("Phone is required.");
+  const validationSchemaPassword = Yup.string()
+    .required("Password is required.")
+    .min(8, "Use 8 to 20 characters.")
+    .max(20, "Do not use more than 20 characters.")
+    .matches(/^(?!.*(.)\1{3}).*$/, "Do not use 4 or more consecutive repeated characters")
+    .matches(/^(?=.*[0-9!@#%^])(?!.*(.)\1{3}).*$/, "At least 1 number or symbol (like !@#%^).");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
@@ -59,7 +65,7 @@ const Signup = () => {
     setPhoneError([]);
     if (stepNumber === 2) {
       try {
-        await validationSchemaNumber.validate(phone);
+        await validationSchemaPhone.validate(phone);
         setPhoneError([]);
         navigateStep("next", stepNumber);
       } catch (error) {

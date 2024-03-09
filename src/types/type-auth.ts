@@ -39,3 +39,14 @@ export interface SignupFormProps {
   validStep: (event: React.MouseEvent<HTMLButtonElement>, step: number) => void;
   backStep: (step: number) => void;
 }
+
+
+export interface User {
+  user: UserAuth;
+}
+
+export interface UserAuth {
+  email: string;
+  phone: string;
+  password: string;
+}

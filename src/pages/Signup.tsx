@@ -2,6 +2,7 @@ import { useState } from "react";
 import SignupForm from "../components/auth/SignupForm";
 import { SignupStepProps } from "../types/type-auth";
 import * as Yup from "yup";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Signup = () => {
   const signupStepInitial: SignupStepProps[] = [
@@ -18,6 +19,8 @@ const Signup = () => {
   const [passwordError, setPasswordError] = useState<string[]>([]);
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
+
+  const { setItemStorage } = useLocalStorage("PaypalClone");
 
   const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
   const validationSchemaPhone = Yup.string().required("Phone is required.");
@@ -82,6 +85,7 @@ const Signup = () => {
       try {
         await validationSchemaPassword.validate(password);
         setPasswordError([]);
+        signup();
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {
@@ -119,6 +123,7 @@ const Signup = () => {
       password,
     };
     const user = { user: payload };
+    setItemStorage(user);
   };
 
   return (

@@ -7,6 +7,15 @@ const useLocalStorage = (key: string) => {
     }
   };
 
-  return { setItemStorage };
+  const getItemStorage = () => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : undefined;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { setItemStorage, getItemStorage };
 };
 export default useLocalStorage;

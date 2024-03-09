@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SignupForm from "../components/auth/SignupForm";
-import { SignupStepProps } from "../types/type-auth";
+import { SignupStepProps, User } from "../types/type-auth";
 import * as Yup from "yup";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -55,7 +55,18 @@ const Signup = () => {
       try {
         await validationSchemaEmail.validate(email);
         setEmailError([]);
-        navigateStep("next", stepNumber);
+        const itemStorage = getItemStorage();
+        if (itemStorage) {
+          const signedUpUser = itemStorage.find((item: User) => item.user.email === email);
+          if (signedUpUser) {
+            setEmailError(["Email is already registered"]);
+          } else {
+            setEmailError([]);
+            navigateStep("next", stepNumber);
+          }
+        } else {
+          navigateStep("next", stepNumber);
+        }
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {

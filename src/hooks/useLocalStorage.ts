@@ -1,6 +1,10 @@
 const useLocalStorage = (key: string) => {
   const setItemStorage = (value: unknown) => {
-    window.localStorage.setItem(key, JSON.stringify(value));
+    try {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return { setItemStorage };

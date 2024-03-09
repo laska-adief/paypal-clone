@@ -34,6 +34,11 @@ const Signup = () => {
     setPhoneError([]);
   };
 
+  const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const valuePassword = event.target?.value;
+    setPassword(valuePassword);
+  };
+
   const validStep = async (event: React.MouseEvent<HTMLButtonElement>, stepNumber: number) => {
     event.preventDefault();
 
@@ -99,6 +104,7 @@ const Signup = () => {
       activeStep={activeSteps}
       onChangeEmail={onChangeEmail}
       onChangePhone={onChangePhone}
+      onChangePassword={onChangePassword}
       validStep={validStep}
       backStep={backStep}
     />

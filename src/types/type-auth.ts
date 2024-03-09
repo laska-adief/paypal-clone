@@ -1,4 +1,6 @@
 export interface InputPasswordProps {
+  passwordError: string[];
+  setPasswordError: (value: string[]) => void;
   passwordValue: (value: string) => void;
 }
 
@@ -32,6 +34,7 @@ export interface SignupFormProps {
   activeStep: number;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChangePhone: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  setPasswordError: (value: string[]) => void;
   onGetValuePassword: (value: string) => void;
   validStep: (event: React.MouseEvent<HTMLButtonElement>, step: number) => void;
   backStep: (step: number) => void;

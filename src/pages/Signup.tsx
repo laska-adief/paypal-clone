@@ -82,7 +82,6 @@ const Signup = () => {
       try {
         await validationSchemaPassword.validate(password);
         setPasswordError([]);
-        console.log("account created");
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {
@@ -111,6 +110,15 @@ const Signup = () => {
     } else {
       setActiveSteps((prevStep) => prevStep - 1);
     }
+  };
+
+  const signup = () => {
+    const payload = {
+      email,
+      phone,
+      password,
+    };
+    const user = { user: payload };
   };
 
   return (

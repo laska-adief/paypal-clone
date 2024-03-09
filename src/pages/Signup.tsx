@@ -20,7 +20,7 @@ const Signup = () => {
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
 
-  const { setItemStorage } = useLocalStorage("PaypalClone");
+  const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
 
   const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
   const validationSchemaPhone = Yup.string().required("Phone is required.");
@@ -117,13 +117,20 @@ const Signup = () => {
   };
 
   const signup = () => {
+    const itemStorage = getItemStorage();
     const payload = {
       email,
       phone,
       password,
     };
-    const user = { user: payload };
-    setItemStorage(user);
+
+    const users = [];
+    if (itemStorage?.length) {
+      users.push(itemStorage, { user: payload });
+    } else {
+      users.push({ user: payload });
+    }
+    setItemStorage(users);
   };
 
   return (

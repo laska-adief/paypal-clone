@@ -62,6 +62,7 @@ const Signup = () => {
       try {
         await validationSchemaNumber.validate(phone);
         setPhoneError([]);
+        navigateStep("next", stepNumber);
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           if (error?.errors?.length) {

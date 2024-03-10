@@ -9,7 +9,7 @@ const Login = () => {
   const [isFocusPassword, setIsFocusPassword] = useState<boolean>(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
-  const { getItemStorage } = useLocalStorage("PaypalClone");
+  const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
@@ -48,6 +48,7 @@ const Login = () => {
       const findRegisteredUser = registredUsers.find((item: User) => item.user.email === email && item.user.password === password);
       if (findRegisteredUser) {
         console.log("logged in", findRegisteredUser);
+        setItemStorage({ ...itemStorage, loggedUser: findRegisteredUser });
       } else {
         console.log("invalid user");
       }

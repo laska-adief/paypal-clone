@@ -56,8 +56,9 @@ const Signup = () => {
         await validationSchemaEmail.validate(email);
         setEmailError([]);
         const itemStorage = getItemStorage();
-        if (itemStorage) {
-          const signedUpUser = itemStorage.find((item: User) => item.user.email === email);
+        const registredUsers = itemStorage?.users;
+        if (registredUsers?.length) {
+          const signedUpUser = registredUsers.find((item: User) => item.user.email === email);
           if (signedUpUser) {
             setEmailError(["Email is already registered"]);
           } else {
@@ -136,12 +137,12 @@ const Signup = () => {
     };
 
     const users = [];
-    if (itemStorage?.length) {
-      users.push(...itemStorage, { user: payload });
+    if (itemStorage?.users?.length) {
+      users.push(...itemStorage.users, { user: payload });
     } else {
       users.push({ user: payload });
     }
-    setItemStorage(users);
+    setItemStorage({ users: users });
   };
 
   return (

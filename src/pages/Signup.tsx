@@ -3,6 +3,7 @@ import SignupForm from "../components/auth/SignupForm";
 import { SignupStepProps, User } from "../types/type-auth";
 import * as Yup from "yup";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const signupStepInitial: SignupStepProps[] = [
@@ -19,6 +20,7 @@ const Signup = () => {
   const [passwordError, setPasswordError] = useState<string[]>([]);
   const [steps, setSteps] = useState(signupStepInitial);
   const [activeSteps, setActiveSteps] = useState(1);
+  const navigate = useNavigate();
 
   const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
 
@@ -143,6 +145,7 @@ const Signup = () => {
       users.push({ user: payload });
     }
     setItemStorage({ users: users });
+    navigate("/login");
   };
 
   return (

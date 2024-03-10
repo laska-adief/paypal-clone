@@ -1,11 +1,15 @@
 import { useState } from "react";
 import LoginForm from "../components/auth/LoginForm";
+import useLocalStorage from "../hooks/useLocalStorage";
+import { User } from "../types/type-auth";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isFocusPassword, setIsFocusPassword] = useState<boolean>(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+
+  const { getItemStorage } = useLocalStorage("PaypalClone");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
@@ -37,6 +41,19 @@ const Login = () => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const itemStorage = getItemStorage();
+    const registredUsers = itemStorage?.users;
+    if (registredUsers?.length) {
+      const findRegisteredUser = registredUsers.find((item: User) => item.user.email === email && item.user.password === password);
+      if (findRegisteredUser) {
+        console.log("logged in", findRegisteredUser);
+      } else {
+        console.log("invalid user");
+      }
+    } else {
+      console.log("invalid user no users");
+    }
   };
 
   return (

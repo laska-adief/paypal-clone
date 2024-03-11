@@ -18,6 +18,7 @@ const Login = () => {
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;
     setEmail(valueEmail);
+    setEmailError([]);
   };
 
   const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +46,23 @@ const Login = () => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    validationLogin();
+  };
 
+  const validationLogin = async () => {
+    try {
+      await validationSchemaEmail.validate(email);
+      login();
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        if (error?.errors?.length) {
+          setEmailError(error.errors);
+        }
+      }
+    }
+  };
+
+  const login = () => {
     const itemStorage = getItemStorage();
     const registredUsers = itemStorage?.users;
     if (registredUsers?.length) {
@@ -60,7 +77,6 @@ const Login = () => {
       console.log("invalid user no users");
     }
   };
-
   return (
     <>
       <LoginForm

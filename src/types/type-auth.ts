@@ -6,6 +6,7 @@ export interface InputPasswordProps {
 
 export interface LoginFormProps {
   email: string;
+  emailError: string[];
   password: string;
   isShowPassword: boolean;
   isFocusPassword: boolean;

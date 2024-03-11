@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoginForm from "../components/auth/LoginForm";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { User } from "../types/type-auth";
+import * as Yup from "yup";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -11,6 +12,8 @@ const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
+
+  const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;

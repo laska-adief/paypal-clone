@@ -5,6 +5,7 @@ import { User } from "../types/type-auth";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
+  const [emailError, setEmailError] = useState<string[]>([]);
   const [password, setPassword] = useState<string>("");
   const [isFocusPassword, setIsFocusPassword] = useState<boolean>(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
@@ -61,6 +62,7 @@ const Login = () => {
     <>
       <LoginForm
         email={email}
+        emailError={emailError}
         password={password}
         isShowPassword={isShowPassword}
         isFocusPassword={isFocusPassword}

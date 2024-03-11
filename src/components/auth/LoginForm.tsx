@@ -7,6 +7,7 @@ import { LoginFormProps } from "../../types/type-auth";
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,
+  emailError,
   password,
   isShowPassword,
   isFocusPassword,
@@ -25,7 +26,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <img src={PaypalLogo} alt="Paypal Logo" />
           </div>
           <form onSubmit={onSubmit} className="flex flex-col gap-4 text-lg">
-            <Input type="email" placeholder="Email" value={email} onChange={onChangeEmail} />
+            <div>
+              <Input type="email" placeholder="Email" value={email} onChange={onChangeEmail} isError={emailError.length > 0} />
+              {emailError?.length > 0 && (
+                <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-4">
+                  {...emailError}
+                </Text>
+              )}
+            </div>
             <div className={`flex ${password && isFocusPassword ? "border border-l-0 rounded border-light-gray" : ""}`}>
               {isShowPassword ? (
                 <Input

@@ -47,7 +47,7 @@ const Login = () => {
     setIsFocusPassword(isFocus);
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     validationLogin();
   };

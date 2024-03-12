@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [emailError, setEmailError] = useState<string[]>([]);
   const [password, setPassword] = useState<string>("");
+  const [passwordError, setPasswordError] = useState<string[]>([]);
   const [isFocusPassword, setIsFocusPassword] = useState<boolean>(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
@@ -24,6 +25,7 @@ const Login = () => {
   const onChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valuePassword = event.target?.value;
     setPassword(valuePassword);
+    setPasswordError([]);
   };
 
   const onShowHidePassword = (event: React.MouseEvent<HTMLButtonElement>, value: boolean) => {
@@ -83,6 +85,7 @@ const Login = () => {
         email={email}
         emailError={emailError}
         password={password}
+        passwordError={passwordError}
         isShowPassword={isShowPassword}
         isFocusPassword={isFocusPassword}
         onChangeEmail={onChangeEmail}

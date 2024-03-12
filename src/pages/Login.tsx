@@ -11,6 +11,7 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState<string[]>([]);
   const [isFocusPassword, setIsFocusPassword] = useState<boolean>(false);
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [errorLogin, setErrorLogin] = useState<boolean>(false);
 
   const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
 
@@ -60,8 +61,8 @@ const Login = () => {
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         if (error?.errors?.length) {
-          if(error.message === 'Enter your password.') {
-            setPasswordError(error.errors)
+          if (error.message === "Enter your password.") {
+            setPasswordError(error.errors);
           } else {
             setEmailError(error.errors);
           }
@@ -78,10 +79,13 @@ const Login = () => {
       if (findRegisteredUser) {
         console.log("logged in", findRegisteredUser);
         setItemStorage({ ...itemStorage, loggedUser: findRegisteredUser });
+        setErrorLogin(false);
       } else {
+        setErrorLogin(true);
         console.log("invalid user");
       }
     } else {
+      setErrorLogin(true);
       console.log("invalid user no users");
     }
   };
@@ -94,6 +98,7 @@ const Login = () => {
         passwordError={passwordError}
         isShowPassword={isShowPassword}
         isFocusPassword={isFocusPassword}
+        errorLogin={errorLogin}
         onChangeEmail={onChangeEmail}
         onChangePassword={onChangePassword}
         onShowHidePassword={onShowHidePassword}

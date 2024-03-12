@@ -12,6 +12,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   passwordError,
   isShowPassword,
   isFocusPassword,
+  errorLogin,
   onChangeEmail,
   onChangePassword,
   onShowHidePassword,
@@ -27,6 +28,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <img src={PaypalLogo} alt="Paypal Logo" />
           </div>
           <div className="flex flex-col gap-4 text-lg">
+            {errorLogin && (
+              <div className="border border-input-border-error rounded-md p-3 bg-light-error">
+                <Text size="text-sm" weight="font-medium">
+                  Some of your information isn't correct. Please try again.
+                </Text>
+              </div>
+            )}
             <div>
               <Input type="email" placeholder="Email" value={email} onChange={onChangeEmail} isError={emailError.length > 0} />
               {emailError?.length > 0 && (

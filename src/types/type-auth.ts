@@ -8,6 +8,7 @@ export interface LoginFormProps {
   email: string;
   emailError: string[];
   password: string;
+  passwordError: string[];
   isShowPassword: boolean;
   isFocusPassword: boolean;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;

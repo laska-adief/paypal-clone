@@ -9,6 +9,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   email,
   emailError,
   password,
+  passwordError,
   isShowPassword,
   isFocusPassword,
   onChangeEmail,
@@ -34,39 +35,48 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 </Text>
               )}
             </div>
-            <div className={`flex ${password && isFocusPassword ? "border border-l-0 rounded border-light-gray" : ""}`}>
-              {isShowPassword ? (
-                <Input
-                  type="text"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={onChangePassword}
-                  onFocus={onFocusInputPassword}
-                  onBlur={onBlurInputPassword}
-                />
-              ) : (
-                <Input
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={onChangePassword}
-                  onFocus={onFocusInputPassword}
-                  onBlur={onBlurInputPassword}
-                />
-              )}
-              {password && isFocusPassword ? (
-                <div>
-                  <Button
-                    type="button"
-                    variant="text"
-                    size="text-xs"
-                    customClass="h-full px-1 font-bold min-w-[40px]"
-                    onMouseDown={(e: React.MouseEvent<HTMLButtonElement>) => onShowHidePassword(e, !isShowPassword)}>
-                    {isShowPassword ? "Hide" : "Show"}
-                  </Button>
-                </div>
-              ) : (
-                <></>
+            <div>
+              <div className={`flex ${password && isFocusPassword ? "border border-l-0 rounded border-light-gray" : ""}`}>
+                {isShowPassword ? (
+                  <Input
+                    type="text"
+                    placeholder="Enter your password"
+                    value={password}
+                    isError={passwordError.length > 0}
+                    onChange={onChangePassword}
+                    onFocus={onFocusInputPassword}
+                    onBlur={onBlurInputPassword}
+                  />
+                ) : (
+                  <Input
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    isError={passwordError.length > 0}
+                    onChange={onChangePassword}
+                    onFocus={onFocusInputPassword}
+                    onBlur={onBlurInputPassword}
+                  />
+                )}
+                {password && isFocusPassword ? (
+                  <div>
+                    <Button
+                      type="button"
+                      variant="text"
+                      size="text-xs"
+                      customClass="h-full px-1 font-bold min-w-[40px]"
+                      onMouseDown={(e: React.MouseEvent<HTMLButtonElement>) => onShowHidePassword(e, !isShowPassword)}>
+                      {isShowPassword ? "Hide" : "Show"}
+                    </Button>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
+              {passwordError?.length > 0 && (
+                <Text size="text-sm" weight="font-medium" customClass="text-error w-full mt-2 ml-4">
+                  {...passwordError}
+                </Text>
               )}
             </div>
 

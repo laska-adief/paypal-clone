@@ -11,6 +11,7 @@ export interface LoginFormProps {
   passwordError: string[];
   isShowPassword: boolean;
   isFocusPassword: boolean;
+  errorLogin: boolean;
   onChangeEmail: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onShowHidePassword: (event: React.MouseEvent<HTMLButtonElement>, value: boolean) => void;

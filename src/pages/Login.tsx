@@ -55,11 +55,16 @@ const Login = () => {
   const validationLogin = async () => {
     try {
       await validationSchemaEmail.validate(email);
+      await validationSchemaPassword.validate(password);
       login();
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         if (error?.errors?.length) {
-          setEmailError(error.errors);
+          if(error.message === 'Enter your password.') {
+            setPasswordError(error.errors)
+          } else {
+            setEmailError(error.errors);
+          }
         }
       }
     }

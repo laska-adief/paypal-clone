@@ -15,6 +15,7 @@ const Login = () => {
   const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
 
   const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
+  const validationSchemaPassword = Yup.string().required("Enter your password.");
 
   const onChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     const valueEmail = event.target?.value;

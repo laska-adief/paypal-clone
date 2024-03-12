@@ -16,7 +16,7 @@ export interface LoginFormProps {
   onShowHidePassword: (event: React.MouseEvent<HTMLButtonElement>, value: boolean) => void;
   onFocusInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlurInputPassword: (event: React.FocusEvent<HTMLInputElement>) => void;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface SignupStepProps {

@@ -13,6 +13,7 @@ export default {
         "dark-gray": "#6c7378",
         error: "#545d68",
         "input-border-error": "#d9360b",
+        "light-error": "#fff7f7",
       },
       padding: {
         form: "30px 40px 50px",

@@ -3,6 +3,7 @@ import LoginForm from "../components/auth/LoginForm";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { User } from "../types/type-auth";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -13,6 +14,7 @@ const Login = () => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [errorLogin, setErrorLogin] = useState<boolean>(false);
 
+  const navigate = useNavigate();
   const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
 
   const validationSchemaEmail = Yup.string().required("Email is required.").email("Please enter a valid email address.");
@@ -80,6 +82,7 @@ const Login = () => {
         console.log("logged in", findRegisteredUser);
         setItemStorage({ ...itemStorage, loggedUser: findRegisteredUser });
         setErrorLogin(false);
+        navigate("/myaccount/summary");
       } else {
         setErrorLogin(true);
         console.log("invalid user");

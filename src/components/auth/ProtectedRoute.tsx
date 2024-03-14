@@ -20,4 +20,15 @@ const ProtectedRoute = ({ children }: PropsWithChildren) => {
   return authUser?.user ? children : null;
 };
 
-export { ProtectedRoute };
+const ProtectedRouteLoggedIn = ({ children }: PropsWithChildren) => {
+  const authUser = useAuthentication();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (authUser?.user) {
+      navigate("/myaccount/summary", { replace: true });
+    }
+  }, [authUser, navigate]);
+  return !authUser?.user ? children : null;
+};
+
+export { ProtectedRoute, ProtectedRouteLoggedIn };

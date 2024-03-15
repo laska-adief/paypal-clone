@@ -5,6 +5,8 @@ import "./index.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
+import { ProtectedRoute } from "./components/auth/ProtectedRoute.tsx";
+import Summary from "./pages/Summary.tsx";
 
 const router = createBrowserRouter([
   {
@@ -12,12 +14,20 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "signup",
+        path: "/signup",
         element: <Signup />,
+      },
+      {
+        path: "/myaccount/summary",
+        element: (
+          <ProtectedRoute>
+            <Summary />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

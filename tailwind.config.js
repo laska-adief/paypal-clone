@@ -14,6 +14,8 @@ export default {
         error: "#545d68",
         "input-border-error": "#d9360b",
         "light-error": "#fff7f7",
+        "link-hovered": "#d1f1ff33",
+        "link-active": "#d1f1ff1a",
       },
       padding: {
         form: "30px 40px 50px",

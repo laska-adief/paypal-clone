@@ -1,9 +1,10 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import PaypalLogo from "./../../assets/images/paypal-logo-white.svg";
 import BellIcon from "./../../assets/images/bell-icon.svg";
 import SettingIcon from "./../../assets/images/setting-icon.svg";
 import BarIcon from "./../../assets/images/bar-icon.svg";
 import Button from "../common/Button";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const Navbar = () => {
   const links = [
@@ -31,8 +32,15 @@ const Navbar = () => {
 
   const locationPath = useLocation();
   const isActiveRoute = (path: string) => locationPath.pathname === path;
+  const navigate = useNavigate();
+  const { getItemStorage, setItemStorage } = useLocalStorage("PaypalClone");
+  const itemStorage = getItemStorage();
+  const usersData = { users: itemStorage?.users };
 
-  console.log("location.path", locationPath);
+  const handleLogout = () => {
+    setItemStorage(usersData);
+    navigate("/login");
+  };
   return (
     <>
       <nav className="bg-primary h-24">
@@ -67,7 +75,7 @@ const Navbar = () => {
                 <img src={SettingIcon} alt="Setting" />
               </div>
             </NavLink>
-            <Button type="button" variant="text" customClass="!text-white">
+            <Button type="button" variant="text" customClass="!text-white" onClick={handleLogout}>
               LOG OUT
             </Button>
           </div>

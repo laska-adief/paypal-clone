@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { FontSizeProp, FontWeightProp } from "../../types/type-utility";
 
 interface TextProps {
@@ -17,9 +18,9 @@ const defaultProps: Partial<TextProps> = {
 
 const Text: React.FC<TextProps> = ({ size, weight, isLink, href, customClass, children }) => {
   return isLink ? (
-    <a href={href} className={`${size} ${weight} ${customClass} text-link`}>
+    <NavLink to={href ? href : "/"} className={`${size} ${weight} ${customClass} text-link`}>
       {children}
-    </a>
+    </NavLink>
   ) : (
     <p className={`${size} ${weight} ${customClass}`}>{children}</p>
   );

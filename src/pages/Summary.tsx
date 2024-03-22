@@ -6,7 +6,7 @@ const Summary = () => {
   return (
     <div>
       <Navbar />
-      <div className="grid grid-cols-3 gap-4 max-w-screen-xl max-xl:px-4 p-8 m-auto">
+      <div className="grid grid-cols-3 gap-x-8 max-w-screen-xl max-xl:px-4 p-8 px-14 m-auto max-md:grid-cols-1 max-md:gap-y-4 max-md:gap-x-0">
         <div className="col-span-2 bg-white border border-black border-opacity-10 rounded-xl p-6 h-max">
           <Text customClass="!text-lg !font-semibold mb-5">Paypal Balance</Text>
           <Text customClass="!text-5xl !font-medium mb-2">4,15 $</Text>
@@ -15,7 +15,7 @@ const Summary = () => {
             Transfer Funds
           </Button>
         </div>
-        <div className="bg-white border border-black border-opacity-10 rounded-xl p-6 h-max">
+        <div className="bg-white border border-black border-opacity-10 rounded-xl p-6 h-max max-md:w-full">
           <div className="flex gap-2">
             <Button type="button" variant="primary" customClass="flex-1 rounded-full">
               Send

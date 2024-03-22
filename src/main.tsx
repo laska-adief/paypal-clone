@@ -7,6 +7,7 @@ import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import { ProtectedRoute, ProtectedRouteLoggedIn } from "./components/auth/ProtectedRoute.tsx";
 import Summary from "./pages/Summary.tsx";
+import Activity from "./pages/Activity.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Summary />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/myaccount/activities",
+        element: (
+          <ProtectedRoute>
+            <Activity />
           </ProtectedRoute>
         ),
       },

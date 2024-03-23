@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { useEffect, useState } from "react";
+import Navbar from "./components/general/Navbar";
 function App() {
   const { getItemStorage } = useLocalStorage("PaypalClone");
   const authStorage = getItemStorage();
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <Outlet />
     </>
   );

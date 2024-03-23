@@ -17,6 +17,7 @@ export default {
         "link-hovered": "#d1f1ff33",
         "link-active": "#d1f1ff1a",
         placeholder: "#001435",
+        "filter-button": "#b9effc",
       },
       padding: {
         form: "30px 40px 50px",

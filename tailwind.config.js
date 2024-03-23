@@ -16,6 +16,7 @@ export default {
         "light-error": "#fff7f7",
         "link-hovered": "#d1f1ff33",
         "link-active": "#d1f1ff1a",
+        placeholder: "#001435",
       },
       padding: {
         form: "30px 40px 50px",

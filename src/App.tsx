@@ -12,9 +12,7 @@ function App() {
 
   useEffect(() => {
     if (!isNavigated) {
-      if (authUser) {
-        navigate("/myaccount/summary");
-      } else {
+      if (!authUser) {
         navigate("/login");
       }
       setIsNavigated(true);

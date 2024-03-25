@@ -1,9 +1,10 @@
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
+import Container from "../components/general/Container";
 
 const Summary = () => {
   return (
-    <div>
+    <Container>
       <div className="grid grid-cols-3 gap-x-8 max-w-screen-xl max-xl:px-4 p-8 px-14 m-auto max-md:grid-cols-1 max-md:gap-y-4 max-md:gap-x-0">
         <div className="col-span-2 flex flex-col gap-8">
           <div className="bg-white border border-black border-opacity-10 rounded-xl p-6 h-max">
@@ -35,7 +36,7 @@ const Summary = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 export default Summary;

@@ -7,6 +7,7 @@ import Container from "../components/general/Container";
 
 const Activity = () => {
   const [valueSearch, setValueSearch] = useState("");
+  const [dateFilter, setDateFilter] = useState();
 
   const onChangeSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;

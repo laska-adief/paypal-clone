@@ -7,7 +7,7 @@ import Container from "../components/general/Container";
 
 const Activity = () => {
   const [valueSearch, setValueSearch] = useState("");
-  const [dateFilter, setDateFilter] = useState();
+  const [dateFilter, setDateFilter] = useState({ label: "Last 90 days", value: "last-90-days" });
 
   const onChangeSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;

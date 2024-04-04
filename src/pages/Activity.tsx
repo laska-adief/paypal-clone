@@ -19,7 +19,7 @@ const Activity = () => {
       <div className="max-w-screen-xl max-xl:px-4 p-8 px-14 m-auto max-md:grid-cols-1 max-md:gap-y-4 max-md:gap-x-0">
         <Search value={valueSearch} onChangeInputSearch={onChangeSearchValue} placeholder="Search by name or email" />
         <Text customClass="text-lg pt-8 pb-4 font-semibold">Filter by</Text>
-        <FilterButton id="filter-date" filterData={FilterDate} text="Date"></FilterButton>
+        <FilterButton id="filter-date" filterData={FilterDate} text="Date" selectedFilter={dateFilter}></FilterButton>
       </div>
     </Container>
   );

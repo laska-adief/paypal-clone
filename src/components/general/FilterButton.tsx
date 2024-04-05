@@ -50,7 +50,7 @@ const FilterButton = ({ id, text, selectedFilter, filterData }: FilterButtonProp
                     name={id}
                     value={filter.value}
                     onChange={handleChangeFilter}
-                    customClass="form-radio h-5 w-5 cursor-pointer"></Input>
+                    customClass="form-radio h-5 !w-5 cursor-pointer"></Input>
                   <label htmlFor={filter.value} className="cursor-pointer">
                     <Text>{filter.label}</Text>
                   </label>

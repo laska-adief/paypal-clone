@@ -26,7 +26,7 @@ const FilterButton = ({ id, text, selectedFilter, filterData }: FilterButtonProp
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-fit">
       <Button
         type="button"
         variant="secondary"

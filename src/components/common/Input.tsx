@@ -9,6 +9,7 @@ interface InputProps {
   maxLength?: number;
   isError?: boolean;
   customClass?: string;
+  checked?: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;

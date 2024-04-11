@@ -24,6 +24,7 @@ const Input: React.FC<InputProps> = ({
   maxLength,
   isError,
   customClass,
+  checked,
   onChange,
   onFocus,
   onBlur,

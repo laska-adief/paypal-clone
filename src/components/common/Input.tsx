@@ -49,6 +49,7 @@ const Input: React.FC<InputProps> = ({
         name={name}
         placeholder={placeholder}
         maxLength={maxLength}
+        checked={checked}
         onChange={onChange}
         onFocus={onFocus}
         onBlur={onBlur}

@@ -7,6 +7,7 @@ interface FilterButtonProps {
   id: string;
   text: string;
   selectedFilter?: { label: string; value: string };
+  setDateFilter?: (filter: { label: string; value: string }) => void;
   filterData: FilterDataProps[];
 }
 

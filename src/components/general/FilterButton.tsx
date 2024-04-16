@@ -16,7 +16,7 @@ interface FilterDataProps {
   value: string;
 }
 
-const FilterButton = ({ id, text, selectedFilter, filterData }: FilterButtonProps) => {
+const FilterButton = ({ id, text, selectedFilter, filterData, setDateFilter }: FilterButtonProps) => {
   const [isActive, setIsActive] = useState(false);
   const handleFilterDisplay = () => {
     setIsActive(!isActive);

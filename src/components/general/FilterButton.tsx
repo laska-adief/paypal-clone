@@ -23,7 +23,10 @@ const FilterButton = ({ id, text, selectedFilter, filterData, setDateFilter }: F
   };
 
   const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("filter", event);
+    const newSelectedFilter = filterData.filter((f) => f.value === event.target.value)[0];
+    if (setDateFilter) {
+      setDateFilter(newSelectedFilter);
+    }
   };
 
   return (

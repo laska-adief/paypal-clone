@@ -20,3 +20,30 @@ export const FilterDate = [
     value: "last-year",
   },
 ];
+
+export const FilterType = [
+  {
+    label: "Automatic Payments",
+    value: "automatic-payments",
+  },
+  {
+    label: "Payments",
+    value: "payments",
+  },
+  {
+    label: "Payments Received",
+    value: "payment-received",
+  },
+  {
+    label: "Refunds",
+    value: "refunds",
+  },
+  {
+    label: "Transfer",
+    value: "transfer",
+  },
+  {
+    label: "Reported Transations",
+    value: "reported-transactions",
+  },
+];

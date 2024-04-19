@@ -7,7 +7,7 @@ interface FilterButtonProps {
   id: string;
   text: string;
   selectedFilter?: { label: string; value: string };
-  setDateFilter?: (filter: { label: string; value: string }) => void;
+  setFilter?: (filter: { label: string; value: string }) => void;
   filterData: FilterDataProps[];
 }
 
@@ -16,7 +16,7 @@ interface FilterDataProps {
   value: string;
 }
 
-const FilterButton = ({ id, text, selectedFilter, filterData, setDateFilter }: FilterButtonProps) => {
+const FilterButton = ({ id, text, selectedFilter, filterData, setFilter }: FilterButtonProps) => {
   const [isActive, setIsActive] = useState(false);
   const handleFilterDisplay = () => {
     setIsActive(!isActive);
@@ -24,8 +24,8 @@ const FilterButton = ({ id, text, selectedFilter, filterData, setDateFilter }: F
 
   const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newSelectedFilter = filterData.filter((f) => f.value === event.target.value)[0];
-    if (setDateFilter) {
-      setDateFilter(newSelectedFilter);
+    if (setFilter) {
+      setFilter(newSelectedFilter);
     }
   };
 

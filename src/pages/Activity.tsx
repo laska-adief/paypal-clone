@@ -24,7 +24,7 @@ const Activity = () => {
           filterData={FilterDate}
           text="Date"
           selectedFilter={dateFilter}
-          setDateFilter={setDateFilter}></FilterButton>
+          setFilter={setDateFilter}></FilterButton>
       </div>
     </Container>
   );

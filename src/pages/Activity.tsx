@@ -2,12 +2,13 @@ import { useState } from "react";
 import Search from "../components/general/Search";
 import Text from "../components/common/Text";
 import FilterButton from "../components/general/FilterButton";
-import { FilterDate } from "../static/FilterData";
+import { FilterDate, FilterType } from "../static/FilterData";
 import Container from "../components/general/Container";
 
 const Activity = () => {
   const [valueSearch, setValueSearch] = useState("");
   const [dateFilter, setDateFilter] = useState({ label: "Last 90 days", value: "last-90-days" });
+  const [typeFilter, setTypeFilter] = useState({ label: "", value: "" });
 
   const onChangeSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;
@@ -25,6 +26,12 @@ const Activity = () => {
           text="Date"
           selectedFilter={dateFilter}
           setFilter={setDateFilter}></FilterButton>
+        <FilterButton
+          id="filter-type"
+          filterData={FilterType}
+          text="Type"
+          selectedFilter={typeFilter}
+          setFilter={setTypeFilter}></FilterButton>
       </div>
     </Container>
   );

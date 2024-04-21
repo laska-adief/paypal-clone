@@ -38,7 +38,7 @@ const FilterButton = ({ id, text, selectedFilter, filterData, setFilter }: Filte
           selectedFilter ? "!bg-filter-button" : "bg-transparent"
         }`}
         onClick={handleFilterDisplay}>
-        {text} {selectedFilter ? ` : ${selectedFilter.label}` : ""}
+        {text} {selectedFilter?.label ? ` : ${selectedFilter.label}` : ""}
       </Button>
 
       {isActive && (
